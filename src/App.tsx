@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import Search from "./components/Search";
+import Forecast from "./components/Forecast";
+import useForecast from "./hooks/useForecast";
+function App(): JSX.Element {
+  const { term, options, forecast, onInputChange, onOptionSelect, onSubmit } =
+    useForecast();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="flex items-center justify-center bg-gradient-to-br from-sky-400 via-rose-400 to-lime-400 h-full min-h-screen w-full">
+      {forecast ? (
+        <Forecast data={forecast} />
+      ) : (
+        <Search
+          term={term}
+          options={options}
+          onInputChange={onInputChange}
+          onOptionSelect={onOptionSelect}
+          onSubmit={onSubmit}
+        />
+      )}
+    </main>
   );
 }
 
