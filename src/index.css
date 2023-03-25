@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-image {
+  background: url("/public/bgImage.jpg") no-repeat;
+  background-size: cover;
+}
+
+.forecast::-webkit-scrollbar {
+  height: 8px;
+}
+.forecast::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid gray;
+}
+.forecast::-webkit-scrollbar-thumb {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
